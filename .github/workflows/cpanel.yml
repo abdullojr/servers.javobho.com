@@ -18,11 +18,13 @@
 #           ftp-password: ${{secrets.FTP_PASSWORD}}
 
 deploy:
-  provider: cpanel
+  provider: ftp
   user: ${{secrets.FTP_USERNAME}}
   password: ${{secrets.FTP_PASSWORD}}
   host: 162.0.232.100
   repository: git@github.com:abdullojr/cpanel.git
   local_dir: ftp-git
   on:
-    branch: main
+    push:
+      branches:
+        - main
